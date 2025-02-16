@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .content {
+        margin: 20px;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      {% for cluster in clusters %}
+      <h2>{{cluster.cluster_title}}</h2>
+      <ul>
+        {% for key_point in cluster.key_points %}
+        <li>
+          {{ key_point.value }} (Source:
+          <a href="{{key_point.source_link}}">{{key_point.source}}) </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+  </body>
+</html>
